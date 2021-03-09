@@ -1,0 +1,49 @@
+
+@startuml
+
+
+interface CompanyFacade <<公司接口>>{
+    +getByCompanyNo(String companyNo) #按照公司编号查询
+    +listByCompanyNos(List<String> companyNoList) #按照公司编号列表查询
+    +listByQuery(CompanyQuery companyQuery) #按照条件搜索公司
+}
+
+
+interface RegionFacade <<区域信息接口>>{
+    +查询所有的大区列表()
+    +查询所有的小区列表()
+    +查询大区下的小区列表()
+}
+
+interface DepartmentFacade <<部门信息接口>>{
+    +getByDeptNo(String deptNo) #按照部门编号查询
+    +listByDeptNos(List<String> deptNos) #按照部门编号列表查询
+    +listByQuery(DepartmentQuery departmentQuery) #按照条件搜索部门
+}
+
+interface DepartmentTreeFacade <<部门树接口>>{
+    +listChildren(String deptNo) #查询直接子部门
+    +getParent(String deptNo) #查询上级部门
+    +listParents(String deptNo) #查询所有的上级部门
+}
+
+interface EmployeeBasicFacade <<员工基本信息接口>>{
+     +getByEmpNo(String empNo) #按照员工编号查询
+     +listByEmpNos(List<String> deptNos) #按照员工编号列表查询
+     +listByDeptNo(String deptNo) #查询部门下的人员列表
+     +listByQuery(EmployeeQuery employeeQuery) #按照条件搜索
+}
+
+
+interface EmployeeBasicExtensionFacade <<员工基本信息扩展接口>>{
+     +getByEmpNo(String empNo) #按照员工编号查询
+}
+
+interface EmployeeFamilyFacade <<员工家庭成员接口>>{
+
+}
+
+
+
+
+@enduml
